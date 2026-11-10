@@ -5,12 +5,15 @@
 package ProyectoVeterinaria.modelo;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author JUAN SEBASTIAN
  */
 public class ConsultaMedica {
+    
+    private Date fecha;
     private String diagnostico;
     private String tratamientoAplicado;
     private ArrayList<Vacuna> vacunasAplicadas;
@@ -19,8 +22,9 @@ public class ConsultaMedica {
     private boolean requirioSedacion;
     private float valorConsulta;
 
-    public ConsultaMedica(String diagnostico, String tratamientoAplicado, ArrayList<Vacuna> vacunasAplicadas,
+    public ConsultaMedica(Date fecha,String diagnostico, String tratamientoAplicado, ArrayList<Vacuna> vacunasAplicadas,
             String notasMedicas, Veterinario veterinario, boolean requirioSedacion, float valorConsulta) {
+        this.fecha = fecha;
         this.diagnostico = diagnostico;
         this.tratamientoAplicado = tratamientoAplicado;
         this.vacunasAplicadas = vacunasAplicadas;

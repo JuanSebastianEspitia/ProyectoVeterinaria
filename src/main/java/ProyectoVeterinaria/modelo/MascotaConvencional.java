@@ -19,7 +19,4 @@ public class MascotaConvencional extends Mascota {
         super(nombre, edad, peso, dueño, historialClinico);
         this.raza = raza;
     }
-    
-    
-    
 }

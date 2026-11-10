@@ -17,7 +17,7 @@ public class Veterinario extends Trabajador {
         this.especialidad = especialidad;
         this.tarjetaProfesional = tarjetaProfesional;
     }
-    public void generarConsultaMedica(ConsultaMedica consulta){
+    public ConsultaMedica generarConsultaMedica(){
     }
 
     public String getEspecialidad() {

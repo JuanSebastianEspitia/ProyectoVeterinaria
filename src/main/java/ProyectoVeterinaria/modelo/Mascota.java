@@ -9,6 +9,9 @@ package ProyectoVeterinaria.modelo;
  * @author JUAN SEBASTIAN
  */
 public class Mascota {
+    
+    public float tarifaBase = 10000f;
+    
     private String nombre;
     private String edad;
     private String peso;
@@ -22,4 +25,28 @@ public class Mascota {
         this.dueño = dueño;
         this.historialClinico = historialClinico;
     }
+    
+    public float calcularPago(ConsultaMedica consulta);
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public Dueño getDueño() {
+        return dueño;
+    }
+
+    public HistorialClinico getHistorialClinico() {
+        return historialClinico;
+    }
+    
+    
 }
