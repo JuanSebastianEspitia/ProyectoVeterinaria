@@ -24,5 +24,25 @@ public class Cita {
         this.mascota = mascota;
         this.dueño = dueño;
     }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public Mascota getMascota() {
+        return mascota;
+    }
+
+    public Dueño getDueño() {
+        return dueño;
+    }
     
 }
