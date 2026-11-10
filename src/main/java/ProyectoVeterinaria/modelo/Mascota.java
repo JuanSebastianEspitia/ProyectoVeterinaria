@@ -9,5 +9,17 @@ package ProyectoVeterinaria.modelo;
  * @author JUAN SEBASTIAN
  */
 public class Mascota {
-    
+    private String nombre;
+    private String edad;
+    private String peso;
+    private Dueño dueño;
+    private HistorialClinico historialClinico;
+
+    public Mascota(String nombre, String edad, String peso, Dueño dueño, HistorialClinico historialClinico) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.peso = peso;
+        this.dueño = dueño;
+        this.historialClinico = historialClinico;
+    }
 }

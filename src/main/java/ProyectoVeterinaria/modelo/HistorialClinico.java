@@ -4,10 +4,25 @@
  */
 package ProyectoVeterinaria.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author JUAN SEBASTIAN
  */
 public class HistorialClinico {
+    private ArrayList<ConsultaMedica> consultas;
+
+        public HistorialClinico(ArrayList<ConsultaMedica> consultas) {
+            this.consultas = consultas;
+        }
+    
+    public void agregarConsulta(ConsultaMedica consulta){
+        consultas.add(consulta);
+    }
+    public List<ConsultaMedica> obtenerConsultas(){
+        return consultas;
+    }
     
 }

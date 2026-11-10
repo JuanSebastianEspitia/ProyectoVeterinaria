@@ -8,6 +8,15 @@ package ProyectoVeterinaria.modelo;
  *
  * @author JUAN SEBASTIAN
  */
-public class MascotaExotica {
+public class MascotaExotica extends Mascota {
     
+    private String permisoAmbientalICA;
+    private boolean requiereSedacion;
+
+    public MascotaExotica(String permisoAmbientalICA, boolean requiereSedacion, String nombre, String edad, String peso,
+            Dueño dueño, HistorialClinico historialClinico) {
+        super(nombre, edad, peso, dueño, historialClinico);
+        this.permisoAmbientalICA = permisoAmbientalICA;
+        this.requiereSedacion = requiereSedacion;
+    }
 }
