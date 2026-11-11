@@ -4,6 +4,9 @@
  */
 package ProyectoVeterinaria.modelo;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author JUAN SEBASTIAN
@@ -17,8 +20,10 @@ public class Veterinario extends Trabajador {
         this.especialidad = especialidad;
         this.tarjetaProfesional = tarjetaProfesional;
     }
-    public ConsultaMedica generarConsultaMedica(){
+    public ConsultaMedica generarConsultaMedica(String diagnostico, String tratamientoAplicado,String notasMedicas, boolean requirioSedacion) {
+    return new ConsultaMedica(new Date(), diagnostico, tratamientoAplicado, new ArrayList<>(), notasMedicas,this, requirioSedacion, 0f);
     }
+
 
     public String getEspecialidad() {
         return especialidad;

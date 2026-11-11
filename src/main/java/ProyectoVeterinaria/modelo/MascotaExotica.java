@@ -10,6 +10,8 @@ package ProyectoVeterinaria.modelo;
  */
 public class MascotaExotica extends Mascota {
     
+    private float recargoExotica = 0.25f;
+    private float costoSedacion = 4000f;
     private String permisoAmbientalICA;
     private boolean requiereSedacion;
 
@@ -22,6 +24,10 @@ public class MascotaExotica extends Mascota {
 
     @Override
     public float calcularPago() {
-       
+       float total = tarifaBase * (1 + recargoExotica);
+    if (requiereSedacion) {
+        total += costoSedacion;
     }
+    return total;
+}
 }

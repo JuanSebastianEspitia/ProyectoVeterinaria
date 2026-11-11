@@ -22,6 +22,13 @@ public class MascotaConvencional extends Mascota {
 
     @Override
     public float calcularPago() {
-        
+        return tarifaBase;
     }
+    public float calcularPago(List<Vacuna> vacunasAplicadas) {
+    float total = tarifaBase;
+    for (Vacuna v : vacunasAplicadas) {
+        total += v.getValorVacuna();
+    }
+    return total;
+}
 }
