@@ -8,7 +8,7 @@ package ProyectoVeterinaria.modelo;
  *
  * @author JUAN SEBASTIAN
  */
-public class Mascota {
+public abstract class Mascota {
     
     public float tarifaBase = 10000f;
     
@@ -26,7 +26,7 @@ public class Mascota {
         this.historialClinico = historialClinico;
     }
     
-    public float calcularPago(ConsultaMedica consulta);
+    public abstract float calcularPago();
 
     public String getNombre() {
         return nombre;

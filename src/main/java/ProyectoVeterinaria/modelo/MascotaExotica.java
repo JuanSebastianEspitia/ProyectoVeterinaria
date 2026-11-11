@@ -19,4 +19,9 @@ public class MascotaExotica extends Mascota {
         this.permisoAmbientalICA = permisoAmbientalICA;
         this.requiereSedacion = requiereSedacion;
     }
+
+    @Override
+    public float calcularPago() {
+       
+    }
 }
