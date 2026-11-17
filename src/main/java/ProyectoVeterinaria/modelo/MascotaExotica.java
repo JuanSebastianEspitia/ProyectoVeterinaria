@@ -11,7 +11,7 @@ package ProyectoVeterinaria.modelo;
 public class MascotaExotica extends Mascota {
     
     private float recargoExotica = 0.25f;
-    private float costoSedacion = 4000f;
+    private int costoSedacion = 4000;
     private String permisoAmbientalICA;
     private boolean requiereSedacion;
 
@@ -30,4 +30,13 @@ public class MascotaExotica extends Mascota {
     }
     return total;
 }
+
+    public String getPermisoAmbientalICA() {
+        return permisoAmbientalICA;
+    }
+
+    public boolean isRequiereSedacion() {
+        return requiereSedacion;
+    }
+    
 }

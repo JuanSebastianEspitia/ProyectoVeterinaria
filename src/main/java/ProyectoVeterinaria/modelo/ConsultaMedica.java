@@ -33,8 +33,46 @@ public class ConsultaMedica {
         this.requirioSedacion = requirioSedacion;
         this.valorConsulta = valorConsulta;
     }
-    
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public String getTratamientoAplicado() {
+        return tratamientoAplicado;
+    }
+
+    public ArrayList<Vacuna> getVacunasAplicadas() {
+        return vacunasAplicadas;
+    }
+
+    public String getNotasMedicas() {
+        return notasMedicas;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public boolean isRequirioSedacion() {
+        return requirioSedacion;
+    }
+
+    public float getValorConsulta() {
+        return valorConsulta;
+    }
     public void añadirVacuna(Vacuna vacunas){
         vacunasAplicadas.add(vacunas);
     }
+    public float calcularValorBiologico() {
+    float total = 0;
+    for (Vacuna v : vacunasAplicadas) {
+        total += v.getValorVacuna();
+    }
+    return total;
+}
 }

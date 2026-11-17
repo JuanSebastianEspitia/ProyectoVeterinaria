@@ -21,5 +21,8 @@ public class Dueño extends Persona {
     public void agregarMascota(Mascota mascota){
         mascotas.add(mascota);
     }
+    public boolean tieneDescuento(){
+        return mascotas.size() >1;
+    }
     
 }
