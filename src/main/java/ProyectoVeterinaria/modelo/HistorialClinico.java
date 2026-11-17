@@ -12,11 +12,7 @@ import java.util.List;
  * @author JUAN SEBASTIAN
  */
 public class HistorialClinico {
-    private ArrayList<ConsultaMedica> consultas;
-
-        public HistorialClinico(ArrayList<ConsultaMedica> consultas) {
-            this.consultas = consultas;
-        }
+    private ArrayList<ConsultaMedica> consultas = new ArrayList<>();
     
     public void agregarConsulta(ConsultaMedica consulta){
         consultas.add(consulta);

@@ -18,12 +18,12 @@ public abstract class Mascota {
     private Dueño dueño;
     private HistorialClinico historialClinico;
 
-    public Mascota(String nombre, String edad, String peso, Dueño dueño, HistorialClinico historialClinico) {
+    public Mascota(String nombre, String edad, String peso, Dueño dueño) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
         this.dueño = dueño;
-        this.historialClinico = historialClinico;
+        this.historialClinico = new HistorialClinico();
     }
     
     public abstract float calcularPago(ConsultaMedica consulta);

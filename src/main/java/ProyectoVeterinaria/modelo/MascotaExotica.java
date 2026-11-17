@@ -15,9 +15,8 @@ public class MascotaExotica extends Mascota {
     private String permisoAmbientalICA;
     private boolean requiereSedacion;
 
-    public MascotaExotica(String permisoAmbientalICA, boolean requiereSedacion, String nombre, String edad, String peso,
-            Dueño dueño, HistorialClinico historialClinico) {
-        super(nombre, edad, peso, dueño, historialClinico);
+    public MascotaExotica(String permisoAmbientalICA, boolean requiereSedacion, String nombre, String edad, String peso, Dueño dueño) {
+        super(nombre, edad, peso, dueño);
         this.permisoAmbientalICA = permisoAmbientalICA;
         this.requiereSedacion = requiereSedacion;
     }

@@ -4,6 +4,7 @@
  */
 package ProyectoVeterinaria.modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,11 +21,9 @@ public class Veterinario extends Trabajador {
         this.especialidad = especialidad;
         this.tarjetaProfesional = tarjetaProfesional;
     }
-    public ConsultaMedica generarConsultaMedica(String diagnostico, String tratamientoAplicado,String notasMedicas, boolean requirioSedacion) {
-    return new ConsultaMedica(new Date(), diagnostico, tratamientoAplicado, new ArrayList<>(), notasMedicas,this, requirioSedacion, 0f);
+    public ConsultaMedica generarConsultaMedica(String diagnostico, String tratamientoAplicado,String notasMedicas) {
+    return new ConsultaMedica(LocalDate.now(), diagnostico, tratamientoAplicado, new ArrayList<>(), notasMedicas, this);
     }
-
-
     public String getEspecialidad() {
         return especialidad;
     }
