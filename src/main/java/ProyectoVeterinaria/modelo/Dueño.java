@@ -24,5 +24,8 @@ public class Dueño extends Persona {
     public boolean tieneDescuento(){
         return mascotas.size() >1;
     }
+    public List<Mascota> getMascotas(){
+        return mascotas;
+    }
     
 }
