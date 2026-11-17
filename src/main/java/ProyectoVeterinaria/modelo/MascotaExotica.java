@@ -23,7 +23,7 @@ public class MascotaExotica extends Mascota {
     }
 
     @Override
-    public float calcularPago() {
+    public float calcularPago(ConsultaMedica consulta) {
        float total = tarifaBase * (1 + recargoExotica);
     if (requiereSedacion) {
         total += costoSedacion;
