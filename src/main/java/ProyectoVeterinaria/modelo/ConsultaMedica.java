@@ -62,4 +62,6 @@ public class ConsultaMedica {
     }
     return total;
 }
+    
+    
 }

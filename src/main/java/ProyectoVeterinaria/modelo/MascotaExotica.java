@@ -30,6 +30,7 @@ public class MascotaExotica extends Mascota {
     return total;
 }
 
+    
     public String getPermisoAmbientalICA() {
         return permisoAmbientalICA;
     }
