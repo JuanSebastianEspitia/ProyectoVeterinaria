@@ -5,28 +5,32 @@
 package ProyectoVeterinaria.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author ASUS
  */
 public class Registro {
-    private ArrayList<Recepcionista> recepcionista;
-    private ArrayList<Dueño> dueños;
-    private ArrayList<Veterinario> veterinarios;
+    private List<Recepcionista> recepcionistas;
+    private List<Dueño> dueños;
+    private List<Veterinario> veterinarios;
 
     public Registro() {
+        this.recepcionistas=new ArrayList<>();
+        this.dueños=new ArrayList<>();
+        this.veterinarios=new ArrayList<>();
     }
 
-    public ArrayList<Recepcionista> getRecepcionista() {
-        return recepcionista;
+    public List<Recepcionista> getRecepcionista() {
+        return recepcionistas;
     }
 
-    public ArrayList<Dueño> getDueños() {
+    public List<Dueño> getDueños() {
         return dueños;
     }
 
-    public ArrayList<Veterinario> getVeterinarios() {
+    public List<Veterinario> getVeterinarios() {
         return veterinarios;
     }
     
@@ -40,6 +44,6 @@ public class Registro {
     }
     
     public void añadirRecepcionista(Recepcionista recepcionista){
-        this.recepcionista.add(recepcionista);
+        this.recepcionistas.add(recepcionista);
     }
 }
