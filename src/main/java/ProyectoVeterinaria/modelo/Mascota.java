@@ -10,7 +10,7 @@ package ProyectoVeterinaria.modelo;
  */
 public abstract class Mascota {
     
-    public static final float tarifaBase = 10000f;
+    private final float valorBase = 50000f;
     
     private String nombre;
     private String edad;
@@ -26,7 +26,7 @@ public abstract class Mascota {
         this.historialClinico = new HistorialClinico();
     }
     
-    public abstract float calcularPago(ConsultaMedica consulta);
+    public abstract float calcularPago();
 
     public String getNombre() {
         return nombre;
@@ -43,6 +43,16 @@ public abstract class Mascota {
     public Dueño getDueño() {
         return dueño;
     }
+
+    public float getValorBase() {
+        return valorBase;
+    }
+    
+    public String obtenerValorBase(){
+        return String.valueOf(valorBase);
+    }
+    
+    
 
     public HistorialClinico getHistorialClinico() {
         return historialClinico;

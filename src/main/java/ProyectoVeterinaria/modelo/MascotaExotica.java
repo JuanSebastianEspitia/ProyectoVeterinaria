@@ -11,32 +11,30 @@ package ProyectoVeterinaria.modelo;
 public class MascotaExotica extends Mascota {
     
     private float recargoExotica = 0.25f;
-    private int costoSedacion = 4000;
     private String permisoAmbientalICA;
-    private boolean requiereSedacion;
 
-    public MascotaExotica(String permisoAmbientalICA, boolean requiereSedacion, String nombre, String edad, String peso, Dueño dueño) {
+    public MascotaExotica(String permisoAmbientalICA, String nombre, String edad, String peso, Dueño dueño) {
         super(nombre, edad, peso, dueño);
         this.permisoAmbientalICA = permisoAmbientalICA;
-        this.requiereSedacion = requiereSedacion;
     }
 
+    
+    
     @Override
-    public float calcularPago(ConsultaMedica consulta) {
-       float total = tarifaBase * (1 + recargoExotica);
-    if (requiereSedacion) {
-        total += costoSedacion;
-    }
+    public float calcularPago() {
+       float total = this.getValorBase() +this.recargoExotica;
     return total;
 }
-
+    
+    public float obtenerRecargoExotica(){
+        float total=this.getValorBase()*this.recargoExotica;
+        return total; 
+    }
     
     public String getPermisoAmbientalICA() {
         return permisoAmbientalICA;
     }
 
-    public boolean isRequiereSedacion() {
-        return requiereSedacion;
-    }
+    
     
 }

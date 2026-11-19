@@ -4,6 +4,8 @@
  */
 package ProyectoVeterinaria.modelo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author JUAN SEBASTIAN
@@ -11,15 +13,15 @@ package ProyectoVeterinaria.modelo;
 public class ComprobantePago {
     
     private String idComprobante;
-    private Cita cita;
+    private ConsultaMedica consulta;
     private float subtotalBase;
     private float recargos;
     private float descuentos;
     private float total;
 
-    public ComprobantePago(String idComprobante, Cita cita, float subtotalBase, float recargos, float descuentos, float total) {
+    public ComprobantePago(String idComprobante, ConsultaMedica consulta, float subtotalBase, float recargos, float descuentos, float total) {
         this.idComprobante = idComprobante;
-        this.cita = cita;
+        this.consulta = consulta;
         this.subtotalBase = subtotalBase;
         this.recargos = recargos;
         this.descuentos = descuentos;
@@ -30,23 +32,46 @@ public class ComprobantePago {
         return idComprobante;
     }
 
-    public Cita getCita() {
-        return cita;
+    public ConsultaMedica getConsulta() {
+        return this.consulta;
     }
 
     public float getSubtotalBase() {
-        return subtotalBase;
+        return this.subtotalBase;
     }
 
     public float getRecargos() {
-        return recargos;
+        return this.recargos;
     }
 
     public float getDescuentos() {
-        return descuentos;
+        return this.descuentos;
     }
 
     public float getTotal() {
-        return total;
+        return this.total;
+    }
+    
+    
+    
+    public void obtenerComprobante(){
+        JOptionPane.showMessageDialog(null, "COMPROBANTE DE PAGO /n"+
+                this.getIdComprobante()+
+                "\n -----------------------------------"+
+                "\n MASCOTA:"+this.getConsulta().getCita().getMascota().getNombre()+ "\n"+
+                "\n DUEÑO:" +this.getConsulta().getCita().getDueño().getNombre()+"\n"+
+                "\n CORREO: "+this.getConsulta().getCita().getDueño().getCorreo()+"\n"+
+                "\n TELEFONO: "+this.getConsulta().getCita().getDueño().getTelefono()+"\n"+
+                "\n DOCUMENTO: "+this.getConsulta().getCita().getDueño().getDocumento()+"\n"+
+                "\n -----------------------------------"+
+                "\n COSTO BASE: $"+this.getConsulta().getCita().getMascota().obtenerValorBase()+
+                "\n RECARGO EXOTICA: "+this.getConsulta().obtenerRecargoExotica()
+                +"\n VACUNAS: "+
+                "   \n"+this.getConsulta().obtenerVacunas()+"\n"+
+                    "\n TOTAL VACUNAS: $"+this.getConsulta().calcularValorBiologico()+
+                "\n SEDACIÓN: $"+this.getConsulta().obtenerCostoSedacion()+"\n"+
+                "\n DESCUENTO POR 2 MASCOTAS: $"+this.getConsulta().obtenerDescuento(descuentos)+"\n"+
+                "\n -----------------------------------"+
+                "\n TOTAL: $"+this.getConsulta().obtenerTotalTotal());
     }
 }
