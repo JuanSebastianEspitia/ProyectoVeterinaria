@@ -4,8 +4,10 @@
  */
 package ProyectoVeterinaria.vista;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -15,13 +17,24 @@ import javax.swing.JTextField;
 public class VistaEmpleados extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaEmpleados.class.getName());
-
+    private CardLayout cardLayout;
+    private JPanel panelContenedor;
     
     public VistaEmpleados() {
         initComponents();
-        jMenuBar1.setBackground(new java.awt.Color(50, 50, 50)); 
+        jMenuBar1.setBackground(new java.awt.Color(255, 0, 0)); 
         jMenuBar1.setOpaque(true);
+        setTitle("EMPLEADOS DOGTOR");
+        cardLayout=new CardLayout();
+        panelContenedor=new JPanel(cardLayout);
+        panelContenedor.add(new VistaConsultas(),"CONSULTAS");
+        panelContenedor.add(new VistaDueñoMascota(),"DUEÑOMASCOTA");
+        panelContenedor.add(new VistaVacunas(), "VACUNAS");
     }
+    
+    
+    
+    
 
     public String getTxtCorreoRecepcionista() {
         return txtCorreoRecepcionista.getText();
@@ -67,9 +80,32 @@ public class VistaEmpleados extends javax.swing.JFrame {
         return txtTelefonoVeterinario.getText();
     }
 
+    public String getTxtEspecialidadVeterinario() {
+        return txtEspecialidadVeterinario.getText();
+    }
+    
+    
+
     public void addAgregarActionListenerRegistrarRecepcionista(ActionListener listener){
         this.btnRegistrarRecepcionista.addActionListener(listener);
     }
+    
+    public void addAgregarActionListenerRegistrarVeterinario(ActionListener listener){
+        this.btnRegistrarVeterinario.addActionListener(listener);
+    }
+    
+    public void addMostrarVistaConsultas(ActionListener listener){
+        this.jmConsulta.addActionListener(listener);
+    }
+    
+    public void addMostrarVistaDueñoMascota(ActionListener listener){
+        this.jmDueñoMascota.addActionListener(listener);
+    }
+    
+    public void addMostrarVistaConsultas(ActionListener listener){
+        this.jmConsulta.addActionListener(listener);
+    }
+    
 
     
     
@@ -103,14 +139,16 @@ public class VistaEmpleados extends javax.swing.JFrame {
         txtTarjetaProfesionalVeterinario = new javax.swing.JTextField();
         btnRegistrarRecepcionista = new javax.swing.JButton();
         btnRegistrarVeterinario = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        txtEspecialidadVeterinario = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jmConsulta = new javax.swing.JMenu();
+        jmVacunas = new javax.swing.JMenu();
+        jmHistorialesMedicos = new javax.swing.JMenu();
+        jmDueñoMascota = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 153, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setText("Documento");
 
@@ -146,27 +184,29 @@ public class VistaEmpleados extends javax.swing.JFrame {
         btnRegistrarVeterinario.setText("REGISTRAR");
         btnRegistrarVeterinario.addActionListener(this::btnRegistrarVeterinarioActionPerformed);
 
+        jLabel14.setText("Especialidad");
+
         jMenuBar1.setBackground(new java.awt.Color(255, 51, 51));
         jMenuBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 3, true));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setToolTipText("");
-        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jMenuBar1.setOpaque(true);
 
-        jMenu1.setText("Consulta/Veterinario");
-        jMenuBar1.add(jMenu1);
+        jmConsulta.setText("Consulta/Veterinario");
+        jMenuBar1.add(jmConsulta);
 
-        jMenu2.setText("Medicamentos");
-        jMenuBar1.add(jMenu2);
+        jmVacunas.setText("Vacunas");
+        jMenuBar1.add(jmVacunas);
 
-        jMenu3.setText("Historiales Medicos");
-        jMenuBar1.add(jMenu3);
+        jmHistorialesMedicos.setText("Historiales Medicos");
+        jMenuBar1.add(jmHistorialesMedicos);
 
-        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5.setText("Mascota y Dueño");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jMenuBar1.add(jMenu5);
+        jmDueñoMascota.setForeground(new java.awt.Color(255, 255, 255));
+        jmDueñoMascota.setText("Mascota y Dueño");
+        jmDueñoMascota.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuBar1.add(jmDueñoMascota);
 
         setJMenuBar(jMenuBar1);
 
@@ -179,7 +219,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(239, 239, 239))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,11 +273,17 @@ public class VistaEmpleados extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtTelefonoRecepcionista)
                                     .addComponent(txtDocumentoRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(43, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(287, 287, 287)
                 .addComponent(btnRegistrarVeterinario)
-                .addGap(279, 279, 279))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(233, 233, 233)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtEspecialidadVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,9 +344,13 @@ public class VistaEmpleados extends javax.swing.JFrame {
                         .addComponent(jLabel11)
                         .addComponent(jLabel13)
                         .addComponent(txtTarjetaProfesionalVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtEspecialidadVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addComponent(btnRegistrarVeterinario)
-                .addGap(49, 49, 49))
+                .addContainerGap())
         );
 
         pack();
@@ -347,6 +397,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -355,15 +406,16 @@ public class VistaEmpleados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jmConsulta;
+    private javax.swing.JMenu jmDueñoMascota;
+    private javax.swing.JMenu jmHistorialesMedicos;
+    private javax.swing.JMenu jmVacunas;
     private javax.swing.JTextField txtCorreoRecepcionista;
     private javax.swing.JTextField txtCorreoVeterinario;
     private javax.swing.JTextField txtDocumentoRecepcionista;
     private javax.swing.JTextField txtDocumentoVeterinario;
+    private javax.swing.JTextField txtEspecialidadVeterinario;
     private javax.swing.JTextField txtNombreRecepcionista;
     private javax.swing.JTextField txtNombreVeterinario;
     private javax.swing.JTextField txtSalarioVeterinario;

@@ -6,6 +6,7 @@ package ProyectoVeterinaria.controlador;
 
 import ProyectoVeterinaria.modelo.Recepcionista;
 import ProyectoVeterinaria.modelo.Registro;
+import ProyectoVeterinaria.modelo.Veterinario;
 import ProyectoVeterinaria.vista.VistaConsultas;
 import ProyectoVeterinaria.vista.VistaDueñoMascota;
 import ProyectoVeterinaria.vista.VistaEmpleados;
@@ -58,9 +59,46 @@ public class ControladorVeterinaria {
           catch(IllegalArgumentException ex){
               JOptionPane.showMessageDialog(null, ex.getMessage());
           }
+        });
+        
+        
+        this.vistaEmpleados.addAgregarActionListenerRegistrarVeterinario(e->{
+            try{
+            if(this.vistaEmpleados.getTxtCorreoVeterinario().isEmpty()||
+               this.vistaEmpleados.getTxtNombreVeterinario().isEmpty()||
+               this.vistaEmpleados.getTxtTelefonoVeterinario().isEmpty()||
+               this.vistaEmpleados.getTxtDocumentoVeterinario().isEmpty()||
+               this.vistaEmpleados.getTxtSalarioVeterinario().isEmpty()||
+               this.vistaEmpleados.getTxtTarjetaProfesionalVeterinario().isEmpty()||
+               this.vistaEmpleados.getTxtEspecialidadVeterinario().isEmpty())
+                throw new IllegalArgumentException("ERROR: debe de llenar todos los campos");
+                
+            String correoVeterinario=this.vistaEmpleados.getTxtCorreoVeterinario();
+            String nombreVeterinario=this.vistaEmpleados.getTxtNombreVeterinario();
+            String telefonoVeterinario=this.vistaEmpleados.getTxtTelefonoVeterinario();
+            String documentoVeterinario=this.vistaEmpleados.getTxtDocumentoVeterinario();
+            float sueldoVeterinario=Float.parseFloat(this.vistaEmpleados.getTxtSalarioVeterinario()) ;
+            String tarjetaProfesional=this.vistaEmpleados.getTxtTarjetaProfesionalVeterinario();
+            String especialidadVeterinario=this.vistaEmpleados.getTxtEspecialidadVeterinario();
+            
+            
+            
+            Veterinario veterinario=new Veterinario(especialidadVeterinario,tarjetaProfesional,nombreVeterinario,documentoVeterinario,correoVeterinario,telefonoVeterinario,sueldoVeterinario);
+            this.registro.añadirVeterinario(veterinario);
+            JOptionPane.showMessageDialog(null, "VETERINARIO "+veterinario.getNombre().toUpperCase()+" DE TARJETA"+veterinario.getTarjetaProfesional()+"\n Y ESPECIALIDAD "
+                    +veterinario.getEspecialidad() +" FUE AGREGADO CORRECTAMENTE");
+        } catch(NumberFormatException errorNumero){
+            JOptionPane.showMessageDialog(null, "ERROR: el sueldo debe ser un número válido");
+        }
+          catch(IllegalArgumentException ex){
+              JOptionPane.showMessageDialog(null, ex.getMessage());
+          }
             
             
         });
+        
+        
+       
         
         
         

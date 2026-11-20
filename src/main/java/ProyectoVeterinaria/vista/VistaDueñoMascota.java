@@ -15,6 +15,9 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
      */
     public VistaDueñoMascota() {
         initComponents();
+        jMenuBar1.setBackground(new java.awt.Color(255, 0, 0)); 
+        jMenuBar1.setOpaque(true);
+        setTitle("DUEÑOS Y MASCOTAS DOGTOR");
     }
 
     /**

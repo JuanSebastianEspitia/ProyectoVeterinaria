@@ -15,6 +15,9 @@ public class VistaConsultas extends javax.swing.JFrame {
     
     public VistaConsultas() {
         initComponents();
+        jMenuBar1.setBackground(new java.awt.Color(255, 0, 0)); 
+        jMenuBar1.setOpaque(true);
+        setTitle("CONSULTAS MÉDICAS DOGTOR");
     }
 
     
@@ -193,7 +196,7 @@ public class VistaConsultas extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 57, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 51, 0));
