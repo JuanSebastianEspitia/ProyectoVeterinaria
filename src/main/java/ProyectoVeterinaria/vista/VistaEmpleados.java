@@ -17,19 +17,14 @@ import javax.swing.JTextField;
 public class VistaEmpleados extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaEmpleados.class.getName());
-    private CardLayout cardLayout;
-    private JPanel panelContenedor;
+    
     
     public VistaEmpleados() {
         initComponents();
         jMenuBar1.setBackground(new java.awt.Color(255, 0, 0)); 
         jMenuBar1.setOpaque(true);
         setTitle("EMPLEADOS DOGTOR");
-        cardLayout=new CardLayout();
-        panelContenedor=new JPanel(cardLayout);
-        panelContenedor.add(new VistaConsultas(),"CONSULTAS");
-        panelContenedor.add(new VistaDueñoMascota(),"DUEÑOMASCOTA");
-        panelContenedor.add(new VistaVacunas(), "VACUNAS");
+        
     }
     
     
@@ -94,17 +89,8 @@ public class VistaEmpleados extends javax.swing.JFrame {
         this.btnRegistrarVeterinario.addActionListener(listener);
     }
     
-    public void addMostrarVistaConsultas(ActionListener listener){
-        this.jmConsulta.addActionListener(listener);
-    }
+   
     
-    public void addMostrarVistaDueñoMascota(ActionListener listener){
-        this.jmDueñoMascota.addActionListener(listener);
-    }
-    
-    public void addMostrarVistaConsultas(ActionListener listener){
-        this.jmConsulta.addActionListener(listener);
-    }
     
 
     
