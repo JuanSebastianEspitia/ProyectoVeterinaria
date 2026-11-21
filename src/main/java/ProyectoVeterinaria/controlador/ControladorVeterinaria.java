@@ -37,21 +37,21 @@ public class ControladorVeterinaria {
                this.vistaVeterinaria.getTxtNombreRecepcionista().isEmpty()||
                this.vistaVeterinaria.getTxtTelefonoRecepcionista().isEmpty()||
                this.vistaVeterinaria.getTxtDocumentoRecepcionista().isEmpty()||
-               this.vistaVeterinaria.getTxtSalario().isEmpty())
+               this.vistaVeterinaria.getTxtSalarioRecepcionista().isEmpty())
                 throw new IllegalArgumentException("ERROR: debe de llenar todos los campos");
                 
             String correoRecepcionista=this.vistaVeterinaria.getTxtCorreoRecepcionista();
             String nombreRecepcionista=this.vistaVeterinaria.getTxtNombreRecepcionista();
             String telefonoRecepcionista=this.vistaVeterinaria.getTxtTelefonoRecepcionista();
             String documentoRecepcionista=this.vistaVeterinaria.getTxtDocumentoRecepcionista();
-            float sueldoRecepcionista=Float.parseFloat(this.vistaVeterinaria.getTxtSalario()) ;
+            float sueldoRecepcionista=Float.parseFloat(this.vistaVeterinaria.getTxtSalarioRecepcionista()) ;
             
             
             Recepcionista recepcionista=new Recepcionista(sueldoRecepcionista,nombreRecepcionista,documentoRecepcionista,correoRecepcionista, telefonoRecepcionista);
             this.registro.añadirRecepcionista(recepcionista);
-            this.vistaVeterinaria.getCbmRecepcionista().removeAllItems();
+            this.vistaVeterinaria.getCmbRecepcionista().removeAllItems();
             for(Recepcionista re: registro.getRecepcionistas()){
-                this.vistaVeterinaria.getCbmRecepcionista().addItem(re.getNombre()+"-"+re.getCorreo()+"-"+re.getTelefono());
+                this.vistaVeterinaria.getCmbRecepcionista().addItem(re.getNombre()+"-"+re.getCorreo()+"-"+re.getTelefono());
             }
             this.vistaVeterinaria.setTxtCorreoRecepcionista("");
             this.vistaVeterinaria.setTxtDocumentoRecepcionista("");
@@ -96,7 +96,7 @@ public class ControladorVeterinaria {
             this.vistaVeterinaria.setTxtNombreVeterinario("");
             this.vistaVeterinaria.setTxtSalarioVeterinario("");
             this.vistaVeterinaria.setTxtTelefonoVeterinario("");
-            JOptionPane.showMessageDialog(null, "VETERINARIO "+veterinario.getNombre().toUpperCase()+" DE TARJETA"+veterinario.getTarjetaProfesional()+"\n Y ESPECIALIDAD "
+            JOptionPane.showMessageDialog(null, "VETERINARIO "+veterinario.getNombre().toUpperCase()+" DE TARJETA "+veterinario.getTarjetaProfesional()+"\n Y ESPECIALIDAD "
                     +veterinario.getEspecialidad() +" FUE AGREGADO CORRECTAMENTE");
         } catch(NumberFormatException errorNumero){
             JOptionPane.showMessageDialog(null, "ERROR: el sueldo debe ser un número válido");

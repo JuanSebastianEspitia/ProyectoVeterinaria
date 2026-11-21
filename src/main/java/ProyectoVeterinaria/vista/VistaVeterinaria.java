@@ -5,6 +5,7 @@
 package ProyectoVeterinaria.vista;
 
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -49,7 +50,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
         return txtNombreVeterinario.getText();
     }
 
-    public String getTxtSalario() {
+    public String getTxtSalarioRecepcionista() {
         return txtSueldoRecepcionista.getText();
     }
 
@@ -129,18 +130,61 @@ public class VistaVeterinaria extends javax.swing.JFrame {
     
     //VARIABLES DE LA VISTA DEL PANEL DE DUEÑO Y MASCOTAS
 
-    public JComboBox<String> getCbmRecepcionista() {
-        return cbmRecepcionista;
+    public JComboBox<String> getCmbRecepcionista() {
+        return cmbRecepcionista;
     }
 
-    
-
-    
-
-    
-
-    
-    
+    public String getTxtNombreDueño(){
+        return txtNombreDueño.getText();
+    }
+    public String getTxtDocumentoDueño(){
+        return txtDocumentoDueño.getText();
+    }
+    public String getTxtCorreoDueño(){
+        return txtCorreoDueño.getText();
+    }
+    public String getTxtTelefonoDueño(){
+        return txtTelefonoDueño.getText();
+    }
+    public JComboBox<String> getCmbTipoMascota() {
+        return cmbTipoMascota;
+    }
+    public JComboBox<String> getCmbDueñoMascota() {
+        return cmbDueñoMascota;
+    }
+    public String getTxtNombreMascota(){
+        return txtNombreMascota.getText();
+    }
+    public String getTxtEdadMascota(){
+        return txtEdadMascota.getText();
+    }
+    public String getTxtPesoMascota(){
+        return txtPesoMascota.getText();
+    }
+    public JComboBox<String> getCmbGeneroMascota() {
+        return cmbGeneroMascota;
+    }
+    public String getTxtCitesMascota(){
+        return txtCitesMascota.getText();
+    }
+    public String getTxtRazaMascota(){
+        return txtRazaMascota.getText();
+    }
+    public List<String> getVacunasMascotaSeleccionadas(){
+        return lstVacunasMascota.getSelectedValuesList();
+    }
+    public void setTxtNombreDueño(String txtNombreDueño){
+        this.txtNombreDueño.setText(txtNombreDueño);
+    }
+    public void setTxtDocumentoDueño(String txtDocumentoDueño){
+        this.txtDocumentoDueño.setText(txtDocumentoDueño);
+    }
+    public void setTxtCorreoDueño(String txtCorreoDueño){
+        this.txtCorreoDueño.setText(txtCorreoDueño);
+    }
+    public void setTxtTelefonoDueño(String txtTelefonoDueño){
+        this.txtTelefonoDueño.setText(txtTelefonoDueño);
+    }
     
     
     
@@ -194,7 +238,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         cmbGeneroMascota = new javax.swing.JComboBox<>();
-        cbmRecepcionista = new javax.swing.JComboBox<>();
+        cmbRecepcionista = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         txtRazaMascota = new javax.swing.JTextField();
@@ -208,7 +252,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
         txtCorreoDueño = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         txtTelefonoDueño = new javax.swing.JTextField();
-        btnDueñoMascota = new javax.swing.JComboBox<>();
+        cmbDueñoMascota = new javax.swing.JComboBox<>();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         txtNombreDueño = new javax.swing.JTextField();
@@ -331,7 +375,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
                                             .addGroup(panelEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel10)
                                                 .addComponent(jLabel8))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(panelEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(txtDocumentoVeterinario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtTelefonoVeterinario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -405,7 +449,6 @@ public class VistaVeterinaria extends javax.swing.JFrame {
                 .addComponent(btnRegistrarRecepcionista)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEmpleadosLayout.createSequentialGroup()
                         .addGroup(panelEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -531,7 +574,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
                                             .addGroup(panelDueñosMascotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(txtNombreMascota)
                                                 .addComponent(cmbTipoMascota, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnDueñoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(cmbDueñoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(panelDueñosMascotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(panelDueñosMascotasLayout.createSequentialGroup()
                                             .addGap(36, 36, 36)
@@ -561,7 +604,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
                                 .addGroup(panelDueñosMascotasLayout.createSequentialGroup()
                                     .addComponent(jLabel19)
                                     .addGap(18, 18, 18)
-                                    .addComponent(cbmRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cmbRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelDueñosMascotasLayout.createSequentialGroup()
                                     .addGap(211, 211, 211)
                                     .addComponent(jLabel23))
@@ -603,7 +646,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
                     .addContainerGap()
                     .addGroup(panelDueñosMascotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel19)
-                        .addComponent(cbmRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelDueñosMascotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelDueñosMascotasLayout.createSequentialGroup()
                             .addGap(189, 189, 189)
@@ -655,7 +698,7 @@ public class VistaVeterinaria extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(panelDueñosMascotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel29)
-                                        .addComponent(btnDueñoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cmbDueñoMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(panelDueñosMascotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel15)
@@ -915,18 +958,18 @@ public class VistaVeterinaria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaDiagnostico;
     private javax.swing.JButton btnAgregarVacuna;
-    private javax.swing.JComboBox<String> btnDueñoMascota;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRegistrarCita;
     private javax.swing.JButton btnRegistrarDueño;
     private javax.swing.JButton btnRegistrarRecepcionista;
     private javax.swing.JButton btnRegistrarVeterinario;
     private javax.swing.JComboBox<String> cbmCita;
-    private javax.swing.JComboBox<String> cbmRecepcionista;
     private javax.swing.JCheckBox chxSedacion;
     private javax.swing.JComboBox<String> cmbDueño;
+    private javax.swing.JComboBox<String> cmbDueñoMascota;
     private javax.swing.JComboBox<String> cmbGeneroMascota;
     private javax.swing.JComboBox<String> cmbMascota;
+    private javax.swing.JComboBox<String> cmbRecepcionista;
     private javax.swing.JComboBox<String> cmbTipoMascota;
     private javax.swing.JComboBox<String> cmbVeterinario;
     private javax.swing.JLabel jLabel1;

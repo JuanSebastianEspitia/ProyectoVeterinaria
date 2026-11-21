@@ -35,7 +35,7 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
         jComboBox4 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cbmRecepcionista = new javax.swing.JComboBox<>();
+        cmbRecepcionista = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -90,7 +90,7 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
 
         jLabel1.setText("Recepcionista");
 
-        cbmRecepcionista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRecepcionista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("DUEÑO");
@@ -111,6 +111,11 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
         jLabel8.setText("Tipo de Mascota");
 
         cmbTipoMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CONVENCIONAL", "EXÓTICA" }));
+        cmbTipoMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoMascotaActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Nombre");
 
@@ -212,7 +217,7 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(cbmRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(211, 211, 211)
                                 .addComponent(jLabel2))
@@ -254,7 +259,7 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(cbmRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbRecepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(189, 189, 189)
@@ -338,7 +343,7 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
         jMenuBar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 3, true));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setToolTipText("");
-        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jMenuBar1.setOpaque(true);
 
@@ -372,6 +377,10 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbTipoMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoMascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipoMascotaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,10 +422,10 @@ public class VistaDueñoMascota extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarCita;
     private javax.swing.JButton btnRegistrarDueño;
     private javax.swing.JButton btnRegistrarMascota;
-    private javax.swing.JComboBox<String> cbmRecepcionista;
     private javax.swing.JComboBox<String> cmbDueño;
     private javax.swing.JComboBox<String> cmbGeneroMascota;
     private javax.swing.JComboBox<String> cmbMascota;
+    private javax.swing.JComboBox<String> cmbRecepcionista;
     private javax.swing.JComboBox<String> cmbTipoMascota;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
