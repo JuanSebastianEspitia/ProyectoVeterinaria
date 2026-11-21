@@ -185,7 +185,11 @@ public class VistaVeterinaria extends javax.swing.JFrame {
     public void setTxtTelefonoDueño(String txtTelefonoDueño){
         this.txtTelefonoDueño.setText(txtTelefonoDueño);
     }
+    //CONSULTAS
     
+    public JComboBox<String> getCmbVeterinario() {
+        return cmbVeterinario;
+    }
     
     
     
