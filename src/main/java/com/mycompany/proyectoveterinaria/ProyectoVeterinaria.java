@@ -10,6 +10,7 @@ import ProyectoVeterinaria.vista.VistaConsultas;
 import ProyectoVeterinaria.vista.VistaDueñoMascota;
 import ProyectoVeterinaria.vista.VistaEmpleados;
 import ProyectoVeterinaria.vista.VistaVacunas;
+import ProyectoVeterinaria.vista.VistaVeterinaria;
 
 /**
  *
@@ -18,14 +19,12 @@ import ProyectoVeterinaria.vista.VistaVacunas;
 public class ProyectoVeterinaria {
 
     public static void main(String[] args) {
-       VistaEmpleados vistaEmpleados=new VistaEmpleados();
-       VistaConsultas vistaConsultas=new VistaConsultas();
-       VistaDueñoMascota vistaDueñoMascota= new VistaDueñoMascota();
-       VistaVacunas vistaVacunas= new VistaVacunas();
+       VistaVeterinaria vistaVeterinaria=new VistaVeterinaria();
+       
        Registro registro=new Registro();
-       ControladorVeterinaria controlador=new ControladorVeterinaria(vistaEmpleados, vistaConsultas, vistaVacunas, vistaDueñoMascota, registro);
+       ControladorVeterinaria controlador=new ControladorVeterinaria(vistaVeterinaria,registro);
        controlador.iniciar();
-       vistaEmpleados.setVisible(true);
+       vistaVeterinaria.setVisible(true);
        
     }
 }

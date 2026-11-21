@@ -22,7 +22,7 @@ public class Registro {
         this.veterinarios=new ArrayList<>();
     }
 
-    public List<Recepcionista> getRecepcionista() {
+    public List<Recepcionista> getRecepcionistas() {
         return recepcionistas;
     }
 

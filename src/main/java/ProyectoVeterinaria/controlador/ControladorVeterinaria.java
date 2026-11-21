@@ -11,6 +11,7 @@ import ProyectoVeterinaria.vista.VistaConsultas;
 import ProyectoVeterinaria.vista.VistaDueñoMascota;
 import ProyectoVeterinaria.vista.VistaEmpleados;
 import ProyectoVeterinaria.vista.VistaVacunas;
+import ProyectoVeterinaria.vista.VistaVeterinaria;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,40 +19,45 @@ import javax.swing.JOptionPane;
  * @author JUAN SEBASTIAN
  */
 public class ControladorVeterinaria {
-    private VistaEmpleados vistaEmpleados;
-    private VistaConsultas vistaConsultas;
-    private VistaVacunas vistaVacunas;
-    private VistaDueñoMascota vistaDueñoMascota;
+    private VistaVeterinaria vistaVeterinaria;
+    
     private Registro registro;
 
-    public ControladorVeterinaria(VistaEmpleados vistaEmpleados, VistaConsultas vistaConsultas, VistaVacunas vistaVacunas, VistaDueñoMascota vistaDueñoMascota, Registro registro) {
-        this.vistaEmpleados = vistaEmpleados;
-        this.vistaConsultas = vistaConsultas;
-        this.vistaVacunas = vistaVacunas;
-        this.vistaDueñoMascota = vistaDueñoMascota;
+    public ControladorVeterinaria(VistaVeterinaria vistaVeterinaria, Registro registro) {
+        this.vistaVeterinaria=vistaVeterinaria;
+        
         this.registro=registro;
     }
     
     public void iniciar(){
         
-        this.vistaEmpleados.addAgregarActionListenerRegistrarRecepcionista(e->{
+        this.vistaVeterinaria.addAgregarActionListenerRegistrarRecepcionista(e->{
             try{
-            if(this.vistaEmpleados.getTxtCorreoRecepcionista().isEmpty()||
-               this.vistaEmpleados.getTxtNombreRecepcionista().isEmpty()||
-               this.vistaEmpleados.getTxtTelefonoRecepcionista().isEmpty()||
-               this.vistaEmpleados.getTxtDocumentoRecepcionista().isEmpty()||
-               this.vistaEmpleados.getTxtSalario().isEmpty())
+            if(this.vistaVeterinaria.getTxtCorreoRecepcionista().isEmpty()||
+               this.vistaVeterinaria.getTxtNombreRecepcionista().isEmpty()||
+               this.vistaVeterinaria.getTxtTelefonoRecepcionista().isEmpty()||
+               this.vistaVeterinaria.getTxtDocumentoRecepcionista().isEmpty()||
+               this.vistaVeterinaria.getTxtSalario().isEmpty())
                 throw new IllegalArgumentException("ERROR: debe de llenar todos los campos");
                 
-            String correoRecepcionista=this.vistaEmpleados.getTxtCorreoRecepcionista();
-            String nombreRecepcionista=this.vistaEmpleados.getTxtNombreRecepcionista();
-            String telefonoRecepcionista=this.vistaEmpleados.getTxtTelefonoRecepcionista();
-            String documentoRecepcionista=this.vistaEmpleados.getTxtDocumentoRecepcionista();
-            float sueldoRecepcionista=Float.parseFloat(this.vistaEmpleados.getTxtSalario()) ;
+            String correoRecepcionista=this.vistaVeterinaria.getTxtCorreoRecepcionista();
+            String nombreRecepcionista=this.vistaVeterinaria.getTxtNombreRecepcionista();
+            String telefonoRecepcionista=this.vistaVeterinaria.getTxtTelefonoRecepcionista();
+            String documentoRecepcionista=this.vistaVeterinaria.getTxtDocumentoRecepcionista();
+            float sueldoRecepcionista=Float.parseFloat(this.vistaVeterinaria.getTxtSalario()) ;
             
             
             Recepcionista recepcionista=new Recepcionista(sueldoRecepcionista,nombreRecepcionista,documentoRecepcionista,correoRecepcionista, telefonoRecepcionista);
             this.registro.añadirRecepcionista(recepcionista);
+            this.vistaVeterinaria.getCbmRecepcionista().removeAllItems();
+            for(Recepcionista re: registro.getRecepcionistas()){
+                this.vistaVeterinaria.getCbmRecepcionista().addItem(re.getNombre()+"-"+re.getCorreo()+"-"+re.getTelefono());
+            }
+            this.vistaVeterinaria.setTxtCorreoRecepcionista("");
+            this.vistaVeterinaria.setTxtDocumentoRecepcionista("");
+            this.vistaVeterinaria.setTxtNombreRecepcionista("");
+            this.vistaVeterinaria.setTxtSueldoRecepcionista("");
+            this.vistaVeterinaria.setTxtTelefonoRecepcionista("");
             JOptionPane.showMessageDialog(null, "RECEPCIONISTA "+recepcionista.getNombre().toUpperCase()+" FUE AGREGADO CORRECTAMENTE");
         } catch(NumberFormatException errorNumero){
             JOptionPane.showMessageDialog(null, "ERROR: el sueldo debe ser un número válido");
@@ -62,29 +68,34 @@ public class ControladorVeterinaria {
         });
         
         
-        this.vistaEmpleados.addAgregarActionListenerRegistrarVeterinario(e->{
+        this.vistaVeterinaria.addAgregarActionListenerRegistrarVeterinario(e->{
             try{
-            if(this.vistaEmpleados.getTxtCorreoVeterinario().isEmpty()||
-               this.vistaEmpleados.getTxtNombreVeterinario().isEmpty()||
-               this.vistaEmpleados.getTxtTelefonoVeterinario().isEmpty()||
-               this.vistaEmpleados.getTxtDocumentoVeterinario().isEmpty()||
-               this.vistaEmpleados.getTxtSalarioVeterinario().isEmpty()||
-               this.vistaEmpleados.getTxtTarjetaProfesionalVeterinario().isEmpty()||
-               this.vistaEmpleados.getTxtEspecialidadVeterinario().isEmpty())
+            if(this.vistaVeterinaria.getTxtCorreoVeterinario().isEmpty()||
+               this.vistaVeterinaria.getTxtNombreVeterinario().isEmpty()||
+               this.vistaVeterinaria.getTxtTelefonoVeterinario().isEmpty()||
+               this.vistaVeterinaria.getTxtDocumentoVeterinario().isEmpty()||
+               this.vistaVeterinaria.getTxtSalarioVeterinario().isEmpty()||
+               this.vistaVeterinaria.getTxtTarjetaProfesionalVeterinario().isEmpty()||
+               this.vistaVeterinaria.getTxtEspecialidadVeterinario().isEmpty())
                 throw new IllegalArgumentException("ERROR: debe de llenar todos los campos");
                 
-            String correoVeterinario=this.vistaEmpleados.getTxtCorreoVeterinario();
-            String nombreVeterinario=this.vistaEmpleados.getTxtNombreVeterinario();
-            String telefonoVeterinario=this.vistaEmpleados.getTxtTelefonoVeterinario();
-            String documentoVeterinario=this.vistaEmpleados.getTxtDocumentoVeterinario();
-            float sueldoVeterinario=Float.parseFloat(this.vistaEmpleados.getTxtSalarioVeterinario()) ;
-            String tarjetaProfesional=this.vistaEmpleados.getTxtTarjetaProfesionalVeterinario();
-            String especialidadVeterinario=this.vistaEmpleados.getTxtEspecialidadVeterinario();
+            String correoVeterinario=this.vistaVeterinaria.getTxtCorreoVeterinario();
+            String nombreVeterinario=this.vistaVeterinaria.getTxtNombreVeterinario();
+            String telefonoVeterinario=this.vistaVeterinaria.getTxtTelefonoVeterinario();
+            String documentoVeterinario=this.vistaVeterinaria.getTxtDocumentoVeterinario();
+            float sueldoVeterinario=Float.parseFloat(this.vistaVeterinaria.getTxtSalarioVeterinario()) ;
+            String tarjetaProfesional=this.vistaVeterinaria.getTxtTarjetaProfesionalVeterinario();
+            String especialidadVeterinario=this.vistaVeterinaria.getTxtEspecialidadVeterinario();
             
             
             
             Veterinario veterinario=new Veterinario(especialidadVeterinario,tarjetaProfesional,nombreVeterinario,documentoVeterinario,correoVeterinario,telefonoVeterinario,sueldoVeterinario);
             this.registro.añadirVeterinario(veterinario);
+            this.vistaVeterinaria.setTxtCorreoVeterinario("");
+            this.vistaVeterinaria.setTxtDocumentoVeterinario("");
+            this.vistaVeterinaria.setTxtNombreVeterinario("");
+            this.vistaVeterinaria.setTxtSalarioVeterinario("");
+            this.vistaVeterinaria.setTxtTelefonoVeterinario("");
             JOptionPane.showMessageDialog(null, "VETERINARIO "+veterinario.getNombre().toUpperCase()+" DE TARJETA"+veterinario.getTarjetaProfesional()+"\n Y ESPECIALIDAD "
                     +veterinario.getEspecialidad() +" FUE AGREGADO CORRECTAMENTE");
         } catch(NumberFormatException errorNumero){
@@ -96,6 +107,9 @@ public class ControladorVeterinaria {
             
             
         });
+        
+        
+        
         
         
        
